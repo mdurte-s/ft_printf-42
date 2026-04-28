@@ -6,7 +6,7 @@
 /*   By: mdurte-s <mdurte-s@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 11:36:29 by mdurte-s          #+#    #+#             */
-/*   Updated: 2026/04/28 17:37:17 by mdurte-s         ###   ########.fr       */
+/*   Updated: 2026/04/28 21:28:17 by mdurte-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,18 +66,21 @@ int	main(void)
 			"hexadecimal (low): %x\n"
 			"hexadecimal (up):  %X\n\n", c, str, ptr, d, i, u, x, xx);
 
-	ft_printf("char:              %c\n", c);
-	ft_printf("string:            %s\n", str);
-	ft_printf("void:              %p\n", ptr);
-	ft_printf("decimal:           %d\n", d);
-	ft_printf("integer:           %i\n", i);
-	ft_printf("unsigned decimal:  %u\n", u);
-	ft_printf("hexadecimal (low): %x\n", x);
-	ft_printf("hexadecimal (up):  %X\n\n", xx);
+	//ft_printf("char:              %c\n", c);
+	//ft_printf("string:            %s\n", str);
+	//ft_printf("void:              %p\n", ptr);
+	//ft_printf("decimal:           %d\n", d);
+	//ft_printf("integer:           %i\n", i);
+	//ft_printf("unsigned decimal:  %u\n", u);
+	//ft_printf("hexadecimal (low): %x\n", x);
+	//ft_printf("hexadecimal (up):  %X\n\n", xx);
 
 	d = printf("char:              %c\n", c);
 	ft_printf("decimal:           %d\n", d);
 	d = ft_printf("char:              %c\n", c);
-	ft_printf("decimal:           %d\n", d);
+	ft_printf("decimal:           %d\n\n", d);
+
+	printf("%%\n");
+	ft_printf("%%\n\n");
 	return (0);
 }*/
