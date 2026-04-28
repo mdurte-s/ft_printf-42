@@ -3,7 +3,15 @@ NAME	= libftprintf.a
 CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
 
-SRCS	= main.c
+SRCDIR	= srcs
+INCDIR	= includes
+
+SRCS	= ${SRCDIR}/ft_putchar.c \
+		${SRCDIR}/ft_putstr.c \
+		${SRCDIR}/ft_strlen.c \
+		${SRCDIR}/ft_putnbr_base.c \
+		${SRCDIR}/conversion.c \
+		ft_printf.c
 
 OBJS	= ${SRCS:.c=.o}
 
@@ -16,7 +24,7 @@ $(NAME):	$(OBJS)
 			ar -rcs $@ $(OBJS)
 
 %.o:%.c
-			$(CC) $C(CFLAGS) -c $< -o $@
+			$(CC) $(CFLAGS) -I $(INCDIR) -c $< -o $@
 
 clean:
 			$(RM) $(OBJS)

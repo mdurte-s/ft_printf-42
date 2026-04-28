@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdurte-s <mdurte-s@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/28 11:36:07 by mdurte-s          #+#    #+#             */
-/*   Updated: 2026/04/28 17:37:47 by mdurte-s         ###   ########.fr       */
+/*   Created: 2026/04/28 12:09:17 by mdurte-s          #+#    #+#             */
+/*   Updated: 2026/04/28 16:22:42 by mdurte-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+int	ft_strlen(char *str)
+{
+	int	i;
 
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdint.h>
-
-int	ft_printf(const char *str, ...);
-
-int	ft_putchar(int c);
-int	ft_putstr(char *str);
-int	ft_strlen(char *str);
-int	putnbr_b(long int nb, char *base);
-int	conversion(char c, va_list arg);
-int	validate(char c);
-
-#endif
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
