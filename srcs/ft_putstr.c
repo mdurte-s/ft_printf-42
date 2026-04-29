@@ -6,26 +6,22 @@
 /*   By: mdurte-s <mdurte-s@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 11:36:26 by mdurte-s          #+#    #+#             */
-/*   Updated: 2026/04/28 14:11:06 by mdurte-s         ###   ########.fr       */
+/*   Updated: 2026/04/29 16:43:06 by mdurte-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr(char *str)
+void	ft_putstr(char *str, int *counter)
 {
 	int	i;
 
-	if (!str)
-	{
-		ft_putstr("(null)");
-		return (6);
-	}
 	i = 0;
+	if (!str)
+		str = "(null)";
 	while (str[i])
 	{
-		ft_putchar(str[i]);
+		ft_putchar(str[i], counter);
 		i++;
 	}
-	return (i);
 }

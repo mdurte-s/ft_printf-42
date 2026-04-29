@@ -6,7 +6,7 @@
 /*   By: mdurte-s <mdurte-s@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 11:36:29 by mdurte-s          #+#    #+#             */
-/*   Updated: 2026/04/28 21:28:17 by mdurte-s         ###   ########.fr       */
+/*   Updated: 2026/04/29 16:41:47 by mdurte-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,73 +14,59 @@
 
 int	ft_printf(const char *str, ...)
 {
-	int		characters;
+	int		c;
 	int		i;
 	va_list	args;
 
-	characters = 0;
+	c = 0;
 	i = -1;
 	va_start(args, str);
 	while (str[++i])
 	{
 		if (str[i] == '%' && validate(str[i + 1]) == 1)
 		{
-			characters += conversion(str[i + 1], args);
+			conversion(str[i + 1], args, &c);
 			i++;
 		}
 		else
-			characters += ft_putchar(str[i]);
+			ft_putchar(str[i], &c);
 	}
 	va_end(args);
-	return (characters);
+	return (c);
 }
 
-/*#include <stdio.h>
-
-int	main(void)
+/* int	main(void)
 {
-	char			c;
-	char			*str;
-	void			*ptr;
-	int				d;
-	int				i;
-	unsigned int	u;
-	unsigned int	x;
-	unsigned int	xx;
-	
-	c = 'a';
-	str = "Hello World!";
-	ptr = &c;
-	d = -42;
-	i = 0x2a;
-	u = 42;
-	x = 42;
-	xx = 42;
+	int				real = 0;
+	int				fake = 0;
+	char			c = 'a';
+	char			*str = "Hello World!";
+	void			*ptr = &c;
+	int				d = -42;
+	int				i = 0x2a;
+	unsigned int	u = 42;
+	unsigned int	x = 42;
+	unsigned int	xx = 42;
 
-	printf("char:              %c\n"
-			"string:            %s\n"
-			"void:              %p\n"
-			"decimal:           %d\n"
-			"integer:           %i\n"
-			"unsigned decimal:  %u\n"
-			"hexadecimal (low): %x\n"
-			"hexadecimal (up):  %X\n\n", c, str, ptr, d, i, u, x, xx);
+	printf("char:              %c\n", c);
+	printf("string:            %s\n", str);
+	printf("void:              %p\n", ptr);
+	printf("decimal:           %d\n", d);
+	printf("integer:           %i\n", i);
+	printf("unsigned decimal:  %u\n", u);
+	printf("hexadecimal (low): %x\n", x);
+	printf("hexadecimal (up):  %X\n\n", xx);
 
-	//ft_printf("char:              %c\n", c);
-	//ft_printf("string:            %s\n", str);
-	//ft_printf("void:              %p\n", ptr);
-	//ft_printf("decimal:           %d\n", d);
-	//ft_printf("integer:           %i\n", i);
-	//ft_printf("unsigned decimal:  %u\n", u);
-	//ft_printf("hexadecimal (low): %x\n", x);
-	//ft_printf("hexadecimal (up):  %X\n\n", xx);
-
-	d = printf("char:              %c\n", c);
+	ft_printf("char:              %c\n", c);
+	ft_printf("string:            %s\n", str);
+	ft_printf("void:              %p\n", ptr);
 	ft_printf("decimal:           %d\n", d);
-	d = ft_printf("char:              %c\n", c);
-	ft_printf("decimal:           %d\n\n", d);
-
-	printf("%%\n");
-	ft_printf("%%\n\n");
+	ft_printf("integer:           %i\n", i);
+	ft_printf("unsigned decimal:  %u\n", u);
+	ft_printf("hexadecimal (low): %x\n", x);
+	ft_printf("hexadecimal (up):  %X\n\n", xx);
+ 
+	printf("real = %d | fake = %d\n", real, fake);
+	
 	return (0);
-}*/
+} */

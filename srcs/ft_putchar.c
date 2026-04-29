@@ -6,14 +6,14 @@
 /*   By: mdurte-s <mdurte-s@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 11:36:17 by mdurte-s          #+#    #+#             */
-/*   Updated: 2026/04/28 15:57:50 by mdurte-s         ###   ########.fr       */
+/*   Updated: 2026/04/29 16:08:22 by mdurte-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar(int c)
+void	ft_putchar(int c, int *counter)
 {
 	write(1, &c, 1);
-	return (1);
+	(*counter)++;
 }

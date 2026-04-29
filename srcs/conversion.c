@@ -6,37 +6,41 @@
 /*   By: mdurte-s <mdurte-s@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 11:35:52 by mdurte-s          #+#    #+#             */
-/*   Updated: 2026/04/28 17:38:09 by mdurte-s         ###   ########.fr       */
+/*   Updated: 2026/04/29 16:20:38 by mdurte-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	conversion(char flag, va_list args)
+void	conversion(char flag, va_list args, int *c)
 {
-	int	c;
-
-	c = 0;
 	if (flag == 'c')
-		c += ft_putchar(va_arg(args, int));
+		ft_putchar(va_arg(args, int), c);
 	else if (flag == 's')
-		c += ft_putstr(va_arg(args, char *));
+		ft_putstr(va_arg(args, char *), c);
 	else if (flag == 'p')
-	{
-		c += ft_putstr("0x");
-		c += putnbr_b((long int)va_arg(args, void *), "0123456789abcdef");
-	}
+		ft_putptr(va_arg(args, void *), c);
 	else if (flag == 'd' || flag == 'i')
-		c += putnbr_b((long int)va_arg(args, int), "0123456789");
+		putnbr_b((long int)va_arg(args, int), "0123456789", c);
 	else if (flag == 'u')
-		c += putnbr_b((long int)va_arg(args, unsigned int), "0123456789");
+		putnbr_b((long int)va_arg(args, unsigned int), "0123456789", c);
 	else if (flag == 'x')
-		c += putnbr_b((long int)va_arg(args, unsigned int), "0123456789abcdef");
+		putnbr_b((long int)va_arg(args, unsigned int), "0123456789abcdef", c);
 	else if (flag == 'X')
-		c += putnbr_b((long int)va_arg(args, unsigned int), "0123456789ABCDEF");
+		putnbr_b((long int)va_arg(args, unsigned int), "0123456789ABCDEF", c);
 	else if (flag == '%')
-		c += ft_putchar('%');
-	return (c);
+		ft_putchar('%', c);
+}
+
+void	ft_putptr(void *ptr, int *c)
+{
+	if (ptr == 0)
+		ft_putstr("(nil)", c);
+	else
+	{
+		ft_putstr("0x", c);
+		putnbr_b((long int)ptr, "0123456789abcdef", c);
+	}
 }
 
 int	validate(char c)

@@ -6,13 +6,13 @@
 /*   By: mdurte-s <mdurte-s@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 12:09:17 by mdurte-s          #+#    #+#             */
-/*   Updated: 2026/04/28 16:22:42 by mdurte-s         ###   ########.fr       */
+/*   Updated: 2026/04/29 16:43:30 by mdurte-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_strlen(char *str)
 {
-	int	i;
+	long int	i;
 
 	i = 0;
 	while (str[i] != '\0')

@@ -6,32 +6,27 @@
 /*   By: mdurte-s <mdurte-s@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/29 20:14:54 by mdurte-s          #+#    #+#             */
-/*   Updated: 2026/04/28 17:34:09 by mdurte-s         ###   ########.fr       */
+/*   Updated: 2026/04/29 16:21:43 by mdurte-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	intlen(long int n);
 static int	validate_dup_sign(char *str);
 
-int	putnbr_b(long int nb, char *base)
+void	putnbr_b(long int nb, char *base, int *counter)
 {
-	int			characters;
-
-	characters = intlen(nb);
 	if (ft_strlen(base) > 1 && validate_dup_sign(base) == 1)
 	{
 		if (nb < 0)
 		{
-			ft_putchar('-');
+			ft_putchar('-', counter);
 			nb = nb * -1;
 		}
 		if (nb >= (long int)ft_strlen(base))
-			putnbr_b(nb / (long int)ft_strlen(base), base);
-		ft_putchar(base[nb % (long int)ft_strlen(base)]);
+			putnbr_b(nb / (long int)ft_strlen(base), base, counter);
+		ft_putchar(base[nb % (long int)ft_strlen(base)], counter);
 	}
-	return (characters);
 }
 
 static int	validate_dup_sign(char *str)
@@ -52,22 +47,4 @@ static int	validate_dup_sign(char *str)
 		i++;
 	}
 	return (1);
-}
-
-static int	intlen(long int n)
-{
-	int	i;
-
-	i = 1;
-	if (n < 0)
-	{
-		i++;
-		n = n * -1;
-	}
-	while (n > 9 || n < -9)
-	{
-		i++;
-		n = n / 10;
-	}
-	return (i);
 }
