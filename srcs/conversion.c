@@ -6,7 +6,7 @@
 /*   By: mdurte-s <mdurte-s@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 11:35:52 by mdurte-s          #+#    #+#             */
-/*   Updated: 2026/04/29 16:20:38 by mdurte-s         ###   ########.fr       */
+/*   Updated: 2026/04/29 17:25:43 by mdurte-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ void	ft_putptr(void *ptr, int *c)
 {
 	if (ptr == 0)
 		ft_putstr("(nil)", c);
+	else if (ptr == (void *)LONG_MIN)
+		ft_putstr("0x8000000000000000", c);
+	else if (ptr == (void *)ULONG_MAX)
+		ft_putstr("0xffffffffffffffff", c);
 	else
 	{
 		ft_putstr("0x", c);

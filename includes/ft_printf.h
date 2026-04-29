@@ -6,7 +6,7 @@
 /*   By: mdurte-s <mdurte-s@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 11:36:07 by mdurte-s          #+#    #+#             */
-/*   Updated: 2026/04/29 16:45:05 by mdurte-s         ###   ########.fr       */
+/*   Updated: 2026/04/29 17:25:20 by mdurte-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdint.h>
+# include <limits.h>
+
 # include <stdio.h>
 
 int		ft_printf(const char *str, ...);
