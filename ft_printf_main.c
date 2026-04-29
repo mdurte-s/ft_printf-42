@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_main.c                                    :+:      :+:    :+:   */
+/*   ft_printf_main.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdurte-s <mdurte-s@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 21:02:35 by mdurte-s          #+#    #+#             */
-/*   Updated: 2026/04/28 21:27:27 by mdurte-s         ###   ########.fr       */
+/*   Updated: 2026/04/29 17:19:01 by mdurte-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int main(void)
 	usleep(600000);
 
 	real = printf("LONG_MAX: %p\n", (void *)LONG_MAX);
-	fake = ft_printf("LONG_MAX:  %p\n", (void *)LONG_MAX);
+	fake = ft_printf("LONG_MAX: %p\n", (void *)LONG_MAX);
 	res += print_result(real, fake);
 	usleep(600000);
 
