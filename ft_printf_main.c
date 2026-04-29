@@ -74,6 +74,26 @@ int main(void)
 	res += print_result(real, fake);
 	usleep(600000);
 
+	real = printf("LONG_MIN: %p\n", (void *)LONG_MIN);
+	fake = ft_printf("LONG_MIN:  %p\n", (void *)LONG_MIN);
+	res += print_result(real, fake);
+	usleep(600000);
+
+	real = printf("LONG_MAX: %p\n", (void *)LONG_MAX);
+	fake = ft_printf("LONG_MAX:  %p\n", (void *)LONG_MAX);
+	res += print_result(real, fake);
+	usleep(600000);
+
+	real = printf("ULONG_MAX: %p\n", (void *)ULONG_MAX);
+	fake = ft_printf("ULONG_MAX: %p\n", (void *)ULONG_MAX);
+	res += print_result(real, fake);
+	usleep(600000);
+
+	real = printf("-ULONG_MAX: %p\n", (void *)-ULONG_MAX);
+	fake = ft_printf("-ULONG_MAX: %p\n", (void *)-ULONG_MAX);
+	res += print_result(real, fake);
+	usleep(600000);
+
 	printf("\033[96m======= Testing %%d flag =======\033[0m\n\n");
 	usleep(600000);
 
